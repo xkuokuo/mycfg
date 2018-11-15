@@ -1,0 +1,46 @@
+#################################################
+## Common Alias
+#################################################
+alias vi="/usr/local/bin/vim"
+alias ls='ls -GFh'
+alias k1="kill %1"
+alias k2="kill %2"
+alias k3="kill %3"
+
+alias ga="git add"
+alias gs="git status"
+alias gb="git branch"
+alias gl="git lg"
+alias gd="git diff"
+
+alias sf="du -sh * | sort -h"
+
+########################################
+# Tmux Configuration
+########################################
+[ -z "$(tmux ls | grep attached)"  ] && { tmux attach || tmux new-session }
+
+########################################
+# Vi Mode Settings
+########################################
+set -o vi
+
+# use my favoriate "alt + ." shortcut, in vim insert mode
+bindkey -M viins "\e." insert-last-word
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd '^R' history-incremental-search-backward
+
+# show current mode (insert/normal) on right hand side
+function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS2=$RPS1
+    zle reset-prompt
+
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+########################################
+# Manage Local Config Files Using Git
+########################################
+alias config='/usr/bin/git --git-dir=/Users/kuoxin/.mycfg/ --work-tree=/Users/kuoxin'
