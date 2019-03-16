@@ -1,0 +1,9 @@
+echo "Yo What's Up"
+
+##########################
+# Vim Mode
+##########################
+
+set -o vi
+
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
