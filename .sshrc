@@ -5,5 +5,8 @@ echo "Yo What's Up"
 ##########################
 
 set -o vi
+bind '"jj":"\e"'
+bind '"fd":"\e"'
+bind -m vi-command ".":insert-last-argument
 
 export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
