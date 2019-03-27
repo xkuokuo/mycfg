@@ -1,6 +1,18 @@
+" Enable mouse
 set mouse=r
+
+" Language specific settings
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+
+" Automatically adjust vim window size
 autocmd VimResized * wincmd =
+
+" For people hate the new macbook touchbar
 inoremap jj <Esc>
 inoremap fd <Esc>
+
+" Use ag for ack
+if executable('ag')
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
