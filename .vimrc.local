@@ -16,3 +16,7 @@ inoremap fd <Esc>
 if executable('ag')
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
+
+" Move up/down faster
+noremap <Up> 5k
+noremap <Down> 5j
