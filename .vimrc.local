@@ -18,5 +18,5 @@ if executable('ag')
 endif
 
 " Move up/down faster
-noremap <Up> 5k
-noremap <Down> 5j
+noremap <Up> 5kzz
+noremap <Down> 5jzz
