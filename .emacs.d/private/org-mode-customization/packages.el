@@ -63,6 +63,10 @@ Each entry is either:
 
 (setq org-todo-keyword-faces
       '(("WIP" . "yellow")))
+
 (add-to-list 'auto-mode-alist '("\\.org.txt$" . org-mode))
+
+;; Life saver: able to cycle the current subtree even cursor is not on the headline
+(setq org-cycle-emulate-tab 'white)
 
 ;;; packages.el ends here
