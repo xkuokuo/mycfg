@@ -6,7 +6,13 @@ cat ~/.banner
 #################################################
 ## Common Alias
 #################################################
-alias vi="/usr/local/bin/vim"
+if [[ -f "/usr/local/bin/vim" ]]; then
+    alias vi="/usr/local/bin/vim"
+elif [[ -f "/usr/bin/vim" ]]; then
+    alias vi="/usr/bin/vim"
+else
+    echo "Error: do you have vim installed?"
+fi
 alias ls='ls -GFh'
 alias k1="kill %1"
 alias k2="kill %2"
