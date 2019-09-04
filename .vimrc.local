@@ -13,13 +13,21 @@ autocmd VimResized * wincmd =
 inoremap jj <Esc>
 inoremap fd <Esc>
 
-" Use ag for ack
-if executable('ag')
-    let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
-
 " Move up/down faster
 noremap <Up> 5kzz
 noremap <Down> 5jzz
 
 command Jsonformat %!python -m json.tool
+
+" Ack config
+" Ack highlight
+let g:ackhighlight = 1
+" Use ag for ack
+if executable('ag')
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
+" Easily shift between windows
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+" Everybody loves ag
+cnoremap ag Ack!
