@@ -5,6 +5,8 @@ set mouse=r
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype go GoVet
+autocmd Filetype c setlocal fdm=syntax
+autocmd Filetype go setlocal fdm=syntax
 
 " Automatically adjust vim window size
 autocmd VimResized * wincmd =
