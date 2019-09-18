@@ -58,3 +58,14 @@ zle -N zle-keymap-select
 # Manage Local Config Files Using Git
 ########################################
 alias config='/usr/bin/git --git-dir=$HOME/.mycfg/ --work-tree=$HOME'
+
+#######################################
+# Some Helper Functions
+#######################################
+
+function addToPATH {
+  case ":$PATH:" in
+    *":$1:"*) :;; # already there
+    *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
+  esac
+}
