@@ -13,7 +13,6 @@ autocmd VimResized * wincmd =
 
 " For people hate the new macbook touchbar
 inoremap jj <Esc>
-inoremap fd <Esc>
 
 " Move up/down faster
 noremap <Up> 5kzz
