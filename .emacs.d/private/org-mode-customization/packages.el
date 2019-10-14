@@ -69,4 +69,13 @@ Each entry is either:
 ;; Life saver: able to cycle the current subtree even cursor is not on the headline
 (setq org-cycle-emulate-tab 'white)
 
+(with-eval-after-load 'org
+    (org-babel-do-load-languages
+          'org-babel-load-languages
+          '((python . t)
+            (C . t)
+            (go . t)
+            (emacs-lisp . t)
+            (shell . t))))
+
 ;;; packages.el ends here
