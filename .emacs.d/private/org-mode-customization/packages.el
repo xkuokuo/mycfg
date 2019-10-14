@@ -69,7 +69,4 @@ Each entry is either:
 ;; Life saver: able to cycle the current subtree even cursor is not on the headline
 (setq org-cycle-emulate-tab 'white)
 
-;; Enable org mode "<s TAB" code block
-(require 'org-tempo)
-
 ;;; packages.el ends here
