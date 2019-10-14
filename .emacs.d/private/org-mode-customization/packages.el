@@ -74,8 +74,10 @@ Each entry is either:
           'org-babel-load-languages
           '((python . t)
             (C . t)
-            (go . t)
             (emacs-lisp . t)
             (shell . t))))
+
+(when (version<= "9.2" (org-version))
+  (require 'org-tempo))
 
 ;;; packages.el ends here
