@@ -4,7 +4,7 @@ set mouse=r
 " Language specific settings
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype go GoVet
+autocmd Filetype go  autocmd BufWritePost <buffer> GoVet
 autocmd Filetype c setlocal fdm=syntax
 autocmd Filetype go setlocal fdm=syntax
 
@@ -27,8 +27,14 @@ let g:ackhighlight = 1
 if executable('ag')
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
+" Everybody loves ag
+cnoremap ag Ack!
+
 " Easily shift between windows
 map <C-J> <C-W>j
 map <C-K> <C-W>k
-" Everybody loves ag
-cnoremap ag Ack!
+
+" Easily adjust window size
+nnoremap <silent> <M-=> :exe "vertical resize " . (winwidth(0) * 4/3)<CR>
+nnoremap <silent> <M--> :exe "vertical resize " . (winwidth(0) * 3/4)<CR>
+
