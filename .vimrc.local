@@ -4,9 +4,16 @@ set mouse=r
 " Language specific settings
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype go  autocmd BufWritePost <buffer> GoVet
 autocmd Filetype c setlocal fdm=syntax
-autocmd Filetype go setlocal fdm=syntax
+
+" Golang
+if count(g:spf13_bundle_groups, 'go')
+    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': [] }
+    autocmd Filetype go setlocal fdm=syntax
+    " autocmd Filetype go autocmd BufWritePost <buffer> GoVet
+    " autocmd Filetype go TagbarToggle
+    " autocmd Filetype go NERDTreeTabsToggle
+endif
 
 " Automatically adjust vim window size
 autocmd VimResized * wincmd =
@@ -28,7 +35,7 @@ if executable('ag')
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 " Everybody loves ag
-cnoremap ag Ack!
+" cnoremap ag Ack!
 
 " Easily shift between windows
 map <C-J> <C-W>j
@@ -37,4 +44,3 @@ map <C-K> <C-W>k
 " Easily adjust window size
 nnoremap <silent> <Leader>= :exe "vertical resize " . (winwidth(0) * 4/3)<CR>
 nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 3/4)<CR>
-
