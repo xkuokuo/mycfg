@@ -10,6 +10,7 @@ autocmd Filetype c setlocal fdm=syntax
 if count(g:spf13_bundle_groups, 'go')
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': [] }
     autocmd Filetype go setlocal fdm=syntax
+    autocmd Filetype go nmap <Leader>d <Plug>(go-def-vertical)
     " autocmd Filetype go autocmd BufWritePost <buffer> GoVet
     " autocmd Filetype go TagbarToggle
     " autocmd Filetype go NERDTreeTabsToggle
