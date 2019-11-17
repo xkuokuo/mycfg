@@ -11,10 +11,21 @@ if count(g:spf13_bundle_groups, 'go')
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': [] }
     autocmd Filetype go setlocal fdm=syntax
     autocmd Filetype go nmap <Leader>d <Plug>(go-def-vertical)
+    autocmd Filetype go setlocal fdm=syntax
     " autocmd Filetype go autocmd BufWritePost <buffer> GoVet
     " autocmd Filetype go TagbarToggle
     " autocmd Filetype go NERDTreeTabsToggle
 endif
+
+if count(g:spf13_bundle_groups, 'python')
+    autocmd Filetype python setlocal fdm=indent
+    let g:pymode_rope = 1
+    let g:pymode_rope_completion = 1
+    let g:pymode_rope_autoimport = 1
+    let g:pymode_rope_autoimport_modules = 1
+    let g:pymode_rope_goto_definition_bind = '<Leader>d'
+    let g:pymode_rope_goto_definition_cmd = 'vnew'
+end
 
 " Automatically adjust vim window size
 autocmd VimResized * wincmd =
