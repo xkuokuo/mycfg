@@ -1,6 +1,15 @@
 " Enable mouse
 set mouse=r
 
+" Set up keybindings that update scrollbar state.
+"nnoremap <silent> j gj <bar> :call RefreshScrollbar()<CR>
+"nnoremap <silent> k gk <bar> :call RefreshScrollbar()<CR>
+" Move up/down faster
+"noremap <Up> 5kzz <bar> :call RefreshScrollbar()<CR>
+"noremap <Down> 5jzz <bar> :call RefreshScrollbar()<CR>
+autocmd CursorMoved <buffer> call RefreshScrollbar()
+autocmd BufWritePost <buffer> call RefreshScrollbar()
+
 " Language specific settings
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
@@ -56,3 +65,4 @@ map <C-K> <C-W>k
 " Easily adjust window size
 nnoremap <silent> <Leader>= :exe "vertical resize " . (winwidth(0) * 4/3)<CR>
 nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 3/4)<CR>
+
