@@ -4,9 +4,15 @@ set mouse=r
 " Set up keybindings that update scrollbar state.
 "noremap <Down> 5jzz <bar> :call RefreshScrollbar()<CR>
 autocmd CursorMoved * call RefreshScrollbar()
+" autocmd CursorMovedI * call RefreshScrollbar()
+" autocmd TextChanged * call RefreshScrollbar()
+" autocmd TextChangedI * call RefreshScrollbar()
 autocmd BufWritePost * call RefreshScrollbar()
 autocmd BufEnter * highlight Scrollbar_Clear ctermfg=yellow ctermbg=black guifg=yellow guibg=black cterm=none
 autocmd BufEnter * highlight Scrollbar_Thumb ctermfg=darkyellow ctermbg=darkyellow guifg=darkyellow guibg=black cterm=reverse
+nnoremap <silent> zz zz <bar><bar> :call RefreshScrollbar()<CR>
+nnoremap <silent> zb zb <bar><bar> :call RefreshScrollbar()<CR>
+nnoremap <silent> zt zt <bar><bar> :call RefreshScrollbar()<CR>
 
 " Set highlighting scheme. (User can override these!)
 
