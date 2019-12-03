@@ -1,3 +1,5 @@
 Bundle 'kshenoy/vim-signature'
 Bundle 'lornix/vim-scrollbar'
 Plugin 'rizzatti/dash.vim'
+Plugin 'dense-analysis/ale'
+

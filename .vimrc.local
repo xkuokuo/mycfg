@@ -23,7 +23,20 @@ autocmd Filetype c setlocal fdm=syntax
 
 " Golang
 if count(g:spf13_bundle_groups, 'go')
-    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': [] }
+    let g:spf13_keep_trailing_whitespace = 1
+    " Error and warning signs.
+    let g:ale_sign_error = '⤫'
+    let g:ale_sign_warning = '⚠'
+    " let g:ale_linters = {'go': ['govet', 'gofmt', 'golint']}
+    let g:ale_linters = {'go': ['govet']}
+    " let g:ale_go_gometalinter_options = "--fast"
+
+
+    " Enable integration with airline.
+    " let g:airline#extensions#ale#enabled = 1"
+    " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': [] }
+    let g:syntastic_go_checkers = []
+    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
     autocmd Filetype go setlocal fdm=syntax
     autocmd Filetype go nmap <Leader>d <Plug>(go-def-vertical)
     " autocmd Filetype go autocmd BufWritePost <buffer> GoVet
@@ -46,7 +59,8 @@ end
 autocmd VimResized * wincmd =
 
 " For people hate the new macbook touchbar
-inoremap jj <Esc>
+inoremap jj <Esc> <bar><bar> :wa<CR>
+noremap dd dd <bar><bar> :wa<CR>
 
 " Move up/down faster
 noremap <Up> 5kzz
