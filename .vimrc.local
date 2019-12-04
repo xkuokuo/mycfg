@@ -30,8 +30,9 @@ if count(g:spf13_bundle_groups, 'go')
     let g:syntastic_go_checkers = []
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
-    " Disable autosave check from vim-go
-    let g:go_fmt_autosave = 0
+    " While this is a dirty trick, use ALE for most of the work, use vim-go for the fmt fixer
+    " let g:go_fmt_autosave = 1
+    let g:ale_go_gofmt_options = '-s'
 
     " ALE error and warning signs.
     let g:ale_sign_error = '⤫'
