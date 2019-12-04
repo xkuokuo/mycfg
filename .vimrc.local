@@ -1,6 +1,18 @@
 " Enable mouse
 set mouse=r
 
+" While I can't change where I live but at least I can change my vim color
+" classic, confortable, feels like 1950s
+colorscheme gruvbox
+" colorscheme tender
+"
+" kind of like playing games on a arcade machine
+" colorscheme OceanicNext
+"
+" very sharp: 
+" colorscheme badwolf
+
+
 " Set up keybindings that update scrollbar state.
 "noremap <Down> 5jzz <bar> :call RefreshScrollbar()<CR>
 autocmd CursorMoved * call RefreshScrollbar()
