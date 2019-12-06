@@ -50,7 +50,7 @@ if count(g:spf13_bundle_groups, 'go')
     let g:ale_sign_error = '⤫'
     let g:ale_sign_warning = '⚠'
     " let g:ale_linters = {'go': ['govet', 'gofmt', 'golint']}
-    let g:ale_linters = {'go': ['govet', 'gofmt', 'golint']}
+    let g:ale_linters = {'go': ['govet', 'gofmt']}
     nnoremap <silent> <F2> :ALENext<cr>
     nnoremap <silent> <F3> :ALEPrevious<cr>
     " While golangci-lint is great, however for reason I don't know why it's broken on my mac
@@ -76,8 +76,9 @@ end
 autocmd VimResized * wincmd =
 
 " For people hate the new macbook touchbar
-inoremap jj <Esc> <bar><bar> :wa<CR>
-noremap dd dd <bar><bar> :wa<CR>
+inoremap jj <Esc>
+" inoremap jj <Esc> <bar><bar> :wa<CR>
+" noremap dd dd <bar><bar> :wa<CR>
 
 " Move up/down faster
 noremap <Up> 5kzz
