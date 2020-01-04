@@ -26,6 +26,8 @@ alias gd="git diff"
 
 alias sf="du -sh * | sort -h"
 
+alias pkill="pkill -I"
+
 ########################################
 # Tmux Configuration
 ########################################
@@ -69,3 +71,10 @@ function addToPATH {
     *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
   esac
 }
+
+########################################
+# Some 3rd party tools 
+########################################
+
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
