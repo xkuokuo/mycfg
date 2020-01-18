@@ -22,7 +22,6 @@ alias ga="git add"
 alias gs="git status"
 alias gb="git branch"
 alias gl="git lg"
-alias gd="git diff"
 
 alias sf="du -sh * | sort -h"
 
@@ -70,6 +69,22 @@ function addToPATH {
     *":$1:"*) :;; # already there
     *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
   esac
+}
+
+unalias gd # somewhere in oh-my-zsh they decided gd is a good name for "git diff" 
+function gd() {
+    params="$@"
+    #if brew ls --versions scmpuff > /dev/null; then
+    #    params=`scmpuff expand "$@" 2>/dev/null`
+    #fi
+
+    if [ $# -eq 0 ]; then
+        git difftool --no-prompt --extcmd "icdiff --line-numbers --no-bold" | less
+    elif [ ${#params} -eq 0 ]; then
+        git difftool --no-prompt --extcmd "icdiff --line-numbers --no-bold" "$@" | less
+    else
+        git difftool --no-prompt --extcmd "icdiff --line-numbers --no-bold" "$params" | less
+    fi
 }
 
 ########################################
