@@ -1,6 +1,10 @@
 " Enable mouse
 set mouse=r
 
+" To get neovim works
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 " While I can't change where I live but at least I can change my vim color
 " classic, confortable, feels like 1950s
 colorscheme gruvbox
@@ -42,21 +46,23 @@ if count(g:spf13_bundle_groups, 'go')
     let g:syntastic_go_checkers = []
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
-    " While this is a dirty trick, use ALE for most of the work, use vim-go for the fmt fixer
-    " let g:go_fmt_autosave = 1
-    let g:ale_go_gofmt_options = '-s'
-
-    " ALE error and warning signs.
+    " ALE configuration
     let g:ale_sign_error = '⤫'
     let g:ale_sign_warning = '⚠'
-    " let g:ale_linters = {'go': ['govet', 'gofmt', 'golint']}
-    let g:ale_linters = {'go': ['govet', 'gofmt']}
+    let g:ale_go_go_executable = '/usr/local/go/bin/go'
+    " by default golangci enable govet gofmt and golint
+
+    " While this is a dirty trick, use ALE for most of the work, use vim-go for the fmt fixer
+    let g:go_fmt_autosave = 1
+
+    " While golangci-lint is great, however for reason I don't know why it's broken on one of my macbook
+    " let g:ale_linters = {'go': ['golangci-lint']}
+    " let g:ale_go_golangci_lint_options = '--disable-all --verbose'
+
     nnoremap <silent> <F2> :ALENext<cr>
     nnoremap <silent> <F3> :ALEPrevious<cr>
-    " While golangci-lint is great, however for reason I don't know why it's broken on my mac
-    " let g:ale_linters = {'go': ['golangci-lint']}
-    " let g:ale_go_golangci_lint_options = ''
 
+    " autocmd Filetype go setlocal omnifunc=
     autocmd Filetype go setlocal fdm=syntax
     autocmd Filetype go nmap <Leader>d <Plug>(go-def-vertical)
 endif

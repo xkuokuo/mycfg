@@ -6,7 +6,9 @@ cat ~/.banner
 #################################################
 ## Common Alias
 #################################################
-if [[ -f "/usr/local/bin/vim" ]]; then
+if [[ -f "/usr/local/bin/nvim" ]]; then
+    alias vi="/usr/local/bin/nvim"
+elif [[ -f "/usr/local/bin/vim" ]]; then
     alias vi="/usr/local/bin/vim"
 elif [[ -f "/usr/bin/vim" ]]; then
     alias vi="/usr/bin/vim"
@@ -93,3 +95,7 @@ function gd() {
 
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
+
+# fzf oh my 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
